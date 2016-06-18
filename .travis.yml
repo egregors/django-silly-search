@@ -6,8 +6,6 @@ python:
 sudo: false
 env:
   matrix:
-   - DJANGO="Django<1.7"
-   - DJANGO="Django<1.8"
    - DJANGO="Django<1.9"
    - DJANGO="Django<1.10"
 cache:
@@ -20,11 +18,9 @@ install:
 matrix:
   exclude:
     - python: "2.7"
-      env: DJANGO="Django<1.7"
-    - python: "3.4"
-      env: DJANGO="Django<1.8"
+      env: DJANGO="Django<1.9"
     - python: "3.5"
-      env: DJANGO="Django<1.10"
+      env: DJANGO="Django<1.9"
 branches:
  only:
   - master
