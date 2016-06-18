@@ -5,7 +5,7 @@ setup(
     name='django-silly-search',
     version='0.1',
     packages=find_packages(),
-    requires=['django (>= 1.3)'],
+    requires=['django (>= 1.7)'],
     url='https://github.com/Egregors/django-silly-search',
     download_url='https://github.com/Egregors/django-silly-search/tarball/master',
     license='Apache License',
