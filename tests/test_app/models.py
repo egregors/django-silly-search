@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals, absolute_import
 
-from django.conf import settings
 from django.db import models
 
 
 class Article(models.Model):
-    author = models.ForeignKey(settings.AUTH_USER_MODEL)
     title = models.CharField(max_length=128)
     description = models.CharField(max_length=255)
     text = models.TextField()
@@ -21,3 +19,4 @@ class News(models.Model):
 class Item(models.Model):
     title = models.CharField(max_length=128)
     description = models.CharField(max_length=255)
+    price = models.DecimalField(max_digits=6, decimal_places=2)

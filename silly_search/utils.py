@@ -58,7 +58,7 @@ def q_search(models=None, fields=None, q=None):
                 if model._meta.get_field(field):
                     predicates.append((field + '__icontains', q))
             except FieldDoesNotExist:
-                # TODO: Do something
+                # field does not exist, go next
                 pass
 
         q_list = [Q(x) for x in predicates]
