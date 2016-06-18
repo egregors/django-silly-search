@@ -15,7 +15,7 @@ def q_search(models=None, fields=None, q=None):
     :param fields: fields (strings) for search in each model
     :param q: query text
 
-    :type models: list of BaseModels or ModelBase
+    :type models: list or ModelBase
     :type fields: list of str or str
     :type q: str
 
