@@ -2,6 +2,8 @@
 
 Simple django-app for search by Q-expressions.
 
+[![Build Status](https://travis-ci.org/Egregors/django-silly-search.svg?branch=master)](https://travis-ci.org/Egregors/django-silly-search)
+
 If you need the simple way to search, without full-text,
 morphology features, this app may be useful. But, if you need search for more
 complicated case, you should use something like [Haystack](http://haystacksearch.org/)
