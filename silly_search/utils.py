@@ -26,8 +26,6 @@ def q_search(models=None, fields=None, q=None):
         q_search(models=[News, Post, Article], fields=['title', 'body', 'text'], q='spam')
         q_search(News, 'title', 'spam')
     """
-    print(type(fields))
-
     if not all([models, fields, q]):
         raise ValueError('"models", "fields", "q" arguments can not be empty')
 

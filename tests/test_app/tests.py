@@ -11,19 +11,33 @@ class SillySearchTestCase(TestCase):
         pass
 
     def test_empty_arguments(self):
-        with self.assertRaisesMessage(ValueError,
-                                      '"models", "fields", "q" arguments can not be empty'):
+        val_err_msg = '"models", "fields", "q" arguments can not be empty'
+
+        with self.assertRaisesMessage(ValueError, val_err_msg):
             q_search()
+
+        with self.assertRaisesMessage(ValueError, val_err_msg):
             q_search(models=Article)
+
+        with self.assertRaisesMessage(ValueError, val_err_msg):
             q_search(models=Article, fields='title')
+
+        with self.assertRaisesMessage(ValueError, val_err_msg):
             q_search(models=Article, q='spam')
+
+        with self.assertRaisesMessage(ValueError, val_err_msg):
             q_search(fields='title')
+
+        with self.assertRaisesMessage(ValueError, val_err_msg):
             q_search(fields='title', q='spam')
 
     def test_bad_model_args(self):
-        with self.assertRaisesMessage(TypeError,
-                                      '"models" must be ModelBase or list of ModelBase'):
+        type_err_mgs = '"models" must be ModelBase or list of ModelBase'
+        with self.assertRaisesMessage(TypeError, type_err_mgs):
             q_search(models=42, fields='title', q='bar')
+
+        with self.assertRaisesMessage(TypeError, type_err_mgs):
+            q_search(models=['spam', 42], fields='title', q='bar')
 
     def test_bad_fields_args(self):
         with self.assertRaisesMessage(TypeError,

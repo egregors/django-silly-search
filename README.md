@@ -35,7 +35,7 @@ The app provides a single function:
 ```
 from silly_search import q_search
 
-# q_search(models, fields, q) -> QuerySet
+# q_search(models, fields, q) -> list of ModelBase instances
 ```
 The functions takes required arguments:
 
@@ -45,6 +45,10 @@ or `list` of `ModelBase` instances
 `fields` – Fields for search. Should be `str` or `list` of `str` (just name of models field)
 
 `q` – phrase for search. Should be an `str`
+
+As result, you'll get list of ModelBase instances.
+Keep in mind, if you use it to search for few different models, you'll probably get
+list of instances different ModelBase class heirs.
 
 ## Example
 
