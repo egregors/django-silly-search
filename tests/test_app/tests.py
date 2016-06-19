@@ -3,7 +3,7 @@ from __future__ import unicode_literals, absolute_import
 
 from django.test import TestCase
 from silly_search import q_search
-from .models import Article
+from .models import Article, Item, News
 
 
 class SillySearchTestCase(TestCase):
@@ -66,3 +66,49 @@ class SillySearchTestCase(TestCase):
         # bad search phrase
         result = q_search(Article, 'title', q='spam')
         self.assertEqual(len(result), 0)
+
+    def test_search_for_few_models(self):
+        items_1 = Item.objects.create(
+            title='Electric guitar',
+            description='Cool guitar for cool kids',
+            price=1000.0
+        )
+
+        items_2 = Item.objects.create(
+            title='Doll',
+            description='Nice gift',
+            price=100.0
+        )
+
+        news_1 = News.objects.create(
+            title='We got new guitars!',
+            text='Text about new guitar'
+        )
+
+        news_2 = News.objects.create(
+            title='New toys!',
+            text='Text about new toys'
+        )
+
+        article_1 = Article.objects.create(
+            title='Same article',
+            description='Desc for same article',
+            text='Text for same article'
+        )
+
+        article_2 = Article.objects.create(
+            title='Article about famous guitarists',
+            description='Desc for article',
+            text='Text for article'
+        )
+
+        result = q_search(
+            models=[Article, News, Item],
+            fields=['title', 'description', 'text'],
+            q='guitar'
+        )
+
+        self.assertEqual(len(result), 3)
+        self.assertIn(items_1, result)
+        self.assertIn(news_1, result)
+        self.assertIn(article_2, result)

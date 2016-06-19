@@ -9,14 +9,23 @@ class Article(models.Model):
     description = models.CharField(max_length=255)
     text = models.TextField()
 
+    def __str__(self):
+        return self.title
+
 
 class News(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=128)
     text = models.TextField()
 
+    def __str__(self):
+        return self.title
+
 
 class Item(models.Model):
     title = models.CharField(max_length=128)
     description = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __str__(self):
+        return self.title
