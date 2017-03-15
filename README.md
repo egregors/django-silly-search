@@ -3,6 +3,7 @@
 Simple django-app for search by Q-expressions.
 
 [![Build Status](https://travis-ci.org/Egregors/django-silly-search.svg?branch=master)](https://travis-ci.org/Egregors/django-silly-search)
+[![PyPI version](https://badge.fury.io/py/django-silly-search.svg)](https://badge.fury.io/py/django-silly-search)
 
 If you need the simple way to search, without full-text,
 morphology features, this app may be useful. But, if you need search for more
